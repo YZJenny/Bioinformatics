@@ -1,22 +1,5 @@
-1.Installation
-1.1 Download the software from http://meme-suite.org/doc/download.html/
-1.2 Type the following commands
-tar zxf meme_5.0.2.tar.gz
-cd meme_5.0.2
-./configure --prefix=$HOME/meme --with-url=http://meme-suite.org/ --enable-build-libxml2 --enable-build-libxslt
-make
-make test
-make install
-1.3 export PATH=$HOME/meme/bin:$PATH 
-
-1.4 Prerequisite software
-(1) Perl
-    cd scripts
-    perl dependencies.pl
-(2) Python
-(3) zlib
-(4) Ghostscript - for creating PNG files.
-(5) Assorted common utilities
+1.Source
+Download the software from http://meme-suite.org/doc/download.html/
 
 
 2. Citation
