@@ -11,7 +11,7 @@ Q5. 发现的一些motif是否与已知motif相类似？
 
 1.2 DREME: discovers short, ungapped motifs that are relatively enriched in your sequences compared with shuffled sequences or your control sequences
 
-1.3 MEME-ChIP: performs comprehensive motif analysis (including motif discovery) on LARGE sets of sequences (typically nucleotide) such as
+1.3 MEME-ChIP: performs comprehensive motif analysis (including motif discovery, motif enrichment, motif comparision) on LARGE sets of sequences (typically nucleotide) such as
 those identifyed by CHIP-seq and CLIP-seq experiemnts
 
 1.4 GLAM2: discovers novel, gapped motifs in your DNA or protein sequences
