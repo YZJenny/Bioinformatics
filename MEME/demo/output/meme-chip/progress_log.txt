@@ -1,0 +1,62 @@
+Invoking:
+  getsize pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa 1> $metrics
+Finished invoke:
+  name: count_seqs  status: 0  time: 0.005106
+Invoking:
+  fasta-most -min 50 < pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa 1> $metrics
+Finished invoke:
+  name: most_seqs  status: 0  time: 0.041321
+Invoking:
+  fasta-center -dna -len 100 < pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa 1> pipeline/MEME/output_meme-chip/seqs-centered
+Finished invoke:
+  name: center_seqs  status: 0  time: 0.124804
+Invoking:
+  fasta-shuffle-letters pipeline/MEME/output_meme-chip/seqs-centered pipeline/MEME/output_meme-chip/seqs-shuffled -kmer 2 -tag -dinuc -dna -seed 1
+Finished invoke:
+  name: shuffle_seqs  status: 0  time: 0.002427
+Invoking:
+  fasta-get-markov -nostatus -nosummary -dna -m 1 pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa pipeline/MEME/output_meme-chip/background
+Finished invoke:
+  name: bg  status: 0  time: 0.003307
+Invoking:
+  meme pipeline/MEME/output_meme-chip/seqs-centered -oc pipeline/MEME/output_meme-chip/meme_out -mod zoops -nmotifs 3 -minw 6 -maxw 30 -bfile pipeline/MEME/output_meme-chip/background -dna -revcomp -nostatus
+Finished invoke:
+  name: meme  status: 0  time: 42.77243
+Invoking:
+  dreme -verbosity 1 -oc pipeline/MEME/output_meme-chip/dreme_out -png -dna -p pipeline/MEME/output_meme-chip/seqs-centered -n pipeline/MEME/output_meme-chip/seqs-shuffled
+Finished invoke:
+  name: dreme  status: 0  time: 1.054586
+Invoking:
+  centrimo -seqlen 2091 -verbosity 1 -oc pipeline/MEME/output_meme-chip/centrimo_out -bfile pipeline/MEME/output_meme-chip/background pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme
+Finished invoke:
+  name: centrimo  status: 0  time: 1.141819
+Invoking:
+  tomtom -verbosity 1 -oc pipeline/MEME/output_meme-chip/meme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme
+Finished invoke:
+  name: meme_tomtom  status: 0  time: 18.285371
+Invoking:
+  tomtom -verbosity 1 -text -thresh 0.1 pipeline/MEME/output_meme-chip/combined.meme pipeline/MEME/output_meme-chip/combined.meme 1> pipeline/MEME/output_meme-chip/motif_alignment.txt
+Finished invoke:
+  name: align  status: 0  time: 0.392155
+Invoking:
+  spamo -verbosity 1 -oc pipeline/MEME/output_meme-chip/spamo_out_1 -bgfile pipeline/MEME/output_meme-chip/background -keepprimary -primary TGGSCRACAKRGTRARACYCYRTCTCWAM pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa pipeline/MEME/output_meme-chip/meme_out/meme.xml pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme
+Finished invoke:
+  name: spamo1  status: 0  time: 2.910003
+Invoking:
+  spamo -verbosity 1 -oc pipeline/MEME/output_meme-chip/spamo_out_2 -bgfile pipeline/MEME/output_meme-chip/background -keepprimary -primary GCCTCAGCCTCCYAARKWGCTGGGATTACA pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa pipeline/MEME/output_meme-chip/meme_out/meme.xml pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme
+Finished invoke:
+  name: spamo2  status: 0  time: 2.776888
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc pipeline/MEME/output_meme-chip/fimo_out_1 --bgfile pipeline/MEME/output_meme-chip/background --motif TGGSCRACAKRGTRARACYCYRTCTCWAM pipeline/MEME/output_meme-chip/meme_out/meme.xml pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa
+Finished invoke:
+  name: fimo1  status: 0  time: 0.170701
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc pipeline/MEME/output_meme-chip/fimo_out_2 --bgfile pipeline/MEME/output_meme-chip/background --motif GCCTCAGCCTCCYAARKWGCTGGGATTACA pipeline/MEME/output_meme-chip/meme_out/meme.xml pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa
+Finished invoke:
+  name: fimo2  status: 0  time: 0.17474
+Writing output
+Invoking:
+  meme-chip_html_to_tsv pipeline/MEME/output_meme-chip/meme-chip.html pipeline/MEME/output_meme-chip/summary.tsv "meme-chip -o pipeline/MEME/output_meme-chip -db meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme pipeline/MEME/input/H3K27me3_peaks.fa" 5.0.2 "Thu Aug 30 14\:26\:08 2018 -0700"
+Finished invoke:
+  name: summary  status: 0  time: 0.125978
+Done

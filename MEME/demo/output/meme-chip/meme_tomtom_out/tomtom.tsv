@@ -1,0 +1,7 @@
+Query_ID	Target_ID	Optimal_offset	p-value	E-value	q-value	Overlap	Query_consensus	Target_consensus	Orientation
+TGGSCRACAKRGTRARACYCYRTCTCWAM	MA0631.1	-7	0.000470685	0.244285	0.442384	17	TGGGCAACATAGTGAAACCCCATCTCAAC	ATTAGTGATACCCTATC	-
+TGGSCRACAKRGTRARACYCYRTCTCWAM	MA0014.2	1	0.000852378	0.442384	0.442384	18	TGGGCAACATAGTGAAACCCCATCTCAAC	GAGGGCAGCCAAGCGTGAC	+
+
+# Tomtom (Motif Comparison Tool): Version 5.0.2 compiled on Nov  7 2018 at 18:10:34
+# The format of this file is described at http://meme-suite.org//doc/tomtom-output-format.html.
+# tomtom -verbosity 1 -oc pipeline/MEME/output_meme-chip/meme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme

@@ -1,0 +1,8 @@
+MOTIF_INDEX	MOTIF_SOURCE	MOTIF_ID	ALT_ID	CONSENSUS	WIDTH	SITES	E-VALUE	E-VALUE_SOURCE	MOST_SIMILAR_MOTIF_SOURCE	MOST_SIMILAR_MOTIF	URL
+1	MEME	TGGSCRACAKRGTRARACYCYRTCTCWAM	MEME-1	TGGSCRACAKRGTRARACYCYRTCTCWAM	29	10	5.1e-038	MEME	meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme	MA0631.1 (Six3)	http://jaspar2016.genereg.net?ID=MA0631.1&rm=present&collection=CORE
+2	MEME	GCCTCAGCCTCCYAARKWGCTGGGATTACA	MEME-2	GCCTCAGCCTCCYAARKWGCTGGGATTACA	30	7	2.1e-022	MEME	 	 	 
+3	MEME	GTGAGCYRAGATBGTGCCACTGCACTCCAG	MEME-3	GTGAGCYRAGATBGTGCCACTGCACTCCAG	30	4	2.6e-004	MEME	 	 	 
+
+# MEME-ChIP (Motif Analysis of Large Nucleotide Datasets): Version 5.0.2 released on Thu Aug 30 14:26:08 2018 -0700
+# The format of this file is described at http://meme-suite.org//doc/meme-chip-output-format.html
+# meme-chip -o pipeline/MEME/output_meme-chip -db meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme pipeline/MEME/input/H3K27me3_peaks.fa

@@ -1,0 +1,24 @@
+# 1-order Markov frequencies from file pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa
+# seqs: 100    min: 160    max: 14472    avg: 1872.5    sum: 187247    alph: DNA
+# order 0
+A 2.601e-01
+C 2.399e-01
+G 2.399e-01
+T 2.601e-01
+# order 1
+AA 7.424e-02
+AC 5.088e-02
+AG 7.633e-02
+AT 5.870e-02
+CA 7.733e-02
+CC 7.136e-02
+CG 1.482e-02
+CT 7.633e-02
+GA 6.236e-02
+GC 5.527e-02
+GG 7.136e-02
+GT 5.088e-02
+TA 4.623e-02
+TC 6.236e-02
+TG 7.733e-02
+TT 7.424e-02

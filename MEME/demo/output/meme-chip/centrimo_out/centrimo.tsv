@@ -1,0 +1,5 @@
+db_index	motif_id	motif_alt_id	consensus	E-value	adj_p-value	log_adj_p-value	bin_location	bin_width	total_width	sites_in_bin	total_sites	p_success	p-value	mult_tests
+
+# CentriMo (Local Motif Enrichment Analysis): Version 5.0.2 compiled on Nov  7 2018 at 18:10:23
+# The format of this file is described at http://meme-suite.org//doc/centrimo-output-format.html.
+# centrimo -seqlen 2091 -verbosity 1 -oc pipeline/MEME/output_meme-chip/centrimo_out -bfile pipeline/MEME/output_meme-chip/background pipeline/MEME/output_meme-chip/H3K27me3_peaks.fa pipeline/MEME/output_meme-chip/meme_out/meme.xml meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme

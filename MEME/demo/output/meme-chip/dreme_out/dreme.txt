@@ -1,0 +1,36 @@
+# DREME 5.0.2
+#     command: dreme -verbosity 1 -oc pipeline/MEME/output_meme-chip/dreme_out -png -dna -p pipeline/MEME/output_meme-chip/seqs-centered -n pipeline/MEME/output_meme-chip/seqs-shuffled
+#   positives: 99 from pipeline/MEME/output_meme-chip/seqs-centered (Wed Nov 07 22:36:27 CST 2018)
+#   negatives: 99 from pipeline/MEME/output_meme-chip/seqs-shuffled (Wed Nov 07 22:36:27 CST 2018)
+#        host: rna
+#        when: Wed Nov 07 22:37:10 CST 2018
+
+MEME version 5.0.2
+
+ALPHABET "DNA" DNA-LIKE
+A "Adenine" CC0000 ~ T "Thymine" 008000
+C "Cytosine" 0000CC ~ G "Guanine" FFB300
+N "Any base" = ACGT
+X = ACGT
+. = ACGT
+V "Not T" = ACG
+H "Not G" = ACT
+D "Not C" = AGT
+B "Not A" = CGT
+M "Amino" = AC
+R "Purine" = AG
+W "Weak" = AT
+S "Strong" = CG
+Y "Pyrimidine" = CT
+K "Keto" = GT
+U = T
+END ALPHABET
+
+strands: + -
+
+Background letter frequencies (from dataset):
+A 0.267 C 0.233 G 0.244 T 0.256
+
+
+# Stopping reason: E-value threshold exceeded
+#    Running time: 0.83 seconds
