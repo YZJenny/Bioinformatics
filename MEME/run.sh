@@ -17,15 +17,19 @@ export PATH=$HOME/meme/bin:$PATH
 #(4) Ghostscript - for creating PNG files.
 #(5) Assorted common utilities
 
-# 2. get fasta
+# 2. Download Databasea
+wget http://meme-suite.org/meme-software/Databases/motifs/motif_databases.12.18.tgz
+wget http://meme-suite.org/meme-software/Databases/gomo/gomo_databases.3.2.tgz
+
+# 3. get fasta
 bedtools getfasta -fi /home/genomewide/refgenome/hg19/hg19.fa -bed pipeline/MEME/data/H3K27me3_peaks.broadPeak -fo pipeline/MEME/data/H3K27me3_peaks.fa &
 
-# 3. run MEME
-# 3.1 meme
+# 4. run MEME
+# 4.1 meme
 meme pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/meme -dna &
 
-# 3.2 dreme
+# 4.2 dreme
 dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/dreme -dna &
 
-# 3.3 meme-chip
+# 4.3 meme-chip
 
