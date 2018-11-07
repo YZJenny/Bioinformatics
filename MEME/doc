@@ -22,7 +22,8 @@ MoMo uses one of three algorithms to discover motifs representing amino acid pre
 
 
 2. Motif Enrichment
-2.1 CentriMo
+2.1 CentriMo: identifies known or user-provided motifs that show a significant preference for particular locations in your sequences 
+(sample output from sequences and motifs). CentriMo can also show if the local enrichment is significant relative to control sequences.
 
 2.2 AME: identifies known user-provided motifs that are either relatively enriched in your sequences compared with control sequences, 
 that are enriched in the first sequences in your input file, or that are enriched in sequences with small values of scores 
