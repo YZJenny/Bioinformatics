@@ -22,10 +22,10 @@ bedtools getfasta -fi /home/genomewide/refgenome/hg19/hg19.fa -bed pipeline/MEME
 
 # 3. run MEME
 # 3.1 meme
-meme pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output_meme -dna &
+meme pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/meme -dna &
 
 # 3.2 dreme
-dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output_dreme -dna &
+dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/dreme -dna &
 
 # 3.3 meme-chip
 
