@@ -24,3 +24,73 @@ perl5: /usr/local/bin/perl
 │   ├── meme.html : html of summary of results
 │   ├── meme.txt : text of summary of results
 │   └── meme.xml
+
+
+5. Args of meme
+ Usage:	meme	<dataset> [optional arguments]
+
+	<dataset> 		file containing sequences in FASTA format
+	[-o <output dir>]	name of directory for output files
+				will not replace existing directory   #输出目录名；如果已经存在的话不覆盖该目录
+	[-oc <output dir>]	name of directory for output files
+				will replace existing directory   #输出目录名；如果已经存在的话覆盖该目录
+	[-text]			output in text format (default is HTML)   #只输出meme.txt文件
+	[-shuf <kmer>]		preserve frequencies of k-mers of size <kmer> 
+				when shuffling (default: 2)
+	[-hsfrac <hsfrac>]	fraction of primary sequences in holdout set 
+				(default: 0.5)
+	[-cefrac <cefrac>]	fraction sequence length for CE region 
+				(default: 0.25)
+	[-searchsize <ssize>]	maximum portion of primary dataset to use
+				for motif search (in characters)
+	[-maxsize <maxsize>]	maximum dataset size in characters
+	[-dna]			sequences use DNA alphabet
+	[-rna]			sequences use RNA alphabet
+	[-protein]		sequences use protein alphabet
+	[-alph <alph file>]	sequences use custom alphabet
+	[-revcomp]		allow sites on + or - DNA strands
+	[-pal]			force palindromes (requires -dna)
+	[-mod oops|zoops|anr]	distribution of motifs
+  # oops 每个功能域在每一段序列中都会出现一次，而且只出现一次。这种模式是运算速度最快，而且最为敏感的。
+  # 但是如果并不是每个序列都包含功能域，那就可能会有不正确的结果。
+  # zoops 每个功能域在每一段序列中至多只出现一次，可能不出现。这种模式运算速度较快，敏感性稍弱。
+  # anr 每个功能域在每一段序列中出现的次数不定。这种模式运算速度最慢，可能会多花十倍以上的时间。
+  # 但是对于功能分布的情况完全未知的情况下，这一参数可能会有帮助。
+	[-nmotifs <nmotifs>]	maximum number of motifs to find    #一共搜索多少个功能域就停止。默认值为1。
+	[-evt <ev>]		stop if motif E-value greater than <evt>    #如果E-value大于<p>时，就停止搜索。默认值为无穷大。
+	[-time <t>]		quit before <t> CPU seconds consumed
+	[-nsites <sites>]	number of sites for each motif
+	[-minsites <minsites>]	minimum number of sites for each motif
+	[-maxsites <maxsites>]	maximum number of sites for each motif
+  # nsites设定之后，MEME搜索到一个功能域出现n次之后就停止该功能域的搜索并进入下一个功能域搜索。
+  # 而出现次数的最小值和最大值由minsites和maxsites来设定。
+  # 默认值为-minsites:2,-maxsites: zoops: 序列总数，anr：5倍序列总数或者50之间的最小值。而对于oops，这两参数不起作用。对于anr，如果你不设定，那MEME会至多搜索50次功能域。
+	[-wnsites <wnsites>]	weight on expected number of sites    # 每次搜索到功能域时的权重设置，介于0~1之间 [0..1)。默认值为0.8。
+	[-w <w>]		motif width
+	[-minw <minw>]		minimum motif width
+	[-maxw <maxw>]		maximum motif width
+  # 功能域长度值。如果-w指定，那么只尝试指定长度的功能域。要不就设定最大值和最小值。默认值为 -minw 8, -maxw 50
+	[-allw]			test starts of all widths from minw to maxw
+	[-nomatrim]		do not adjust motif width using multiple
+				alignment
+	[-wg <wg>]		gap opening cost for multiple alignments
+	[-ws <ws>]		gap extension cost for multiple alignments
+	[-noendgaps]		do not count end gaps in multiple alignments
+  # 序列比对相关的参数,-wg gap扣分 -ws 空隔扣分 -noendgaps 不扣分
+	[-bfile <bfile>]	name of background Markov model file    # 背景模型
+	[-markov_order <order>]	(maximum) order of Markov model to use or create
+	[-psp <pspfile>]	name of positional priors file
+	[-maxiter <maxiter>]	maximum EM iterations to run
+	[-distance <distance>]	EM convergence criterion
+	[-prior dirichlet|dmix|mega|megap|addone]
+				type of prior to use
+	[-b <b>]		strength of the prior
+	[-plib <plib>]		name of Dirichlet prior file
+	[-spfuzz <spfuzz>]	fuzziness of sequence to theta mapping
+	[-spmap uni|pam]	starting point seq to theta mapping type
+	[-cons <cons>]		consensus sequence to start EM from
+	[-brief <n>]		omit sites and sequence tables in
+				output if more than <n> primary sequences
+	[-nostatus]		do not print progress reports to terminal
+	[-p <np>]		use parallel version with <np> processors
+	[-sf <sf>]		print <sf> as name of sequence file
