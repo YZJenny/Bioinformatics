@@ -18,14 +18,17 @@ make install
 (4) Ghostscript - for creating PNG files.
 (5) Assorted common utilities
 
+
 2. Citation
 Timothy L. Bailey and Charles Elkan, "Fitting a mixture model by expectation maximization to discover motifs in biopolymers", 
 Proceedings of the Second International Conference on Intelligent Systems for Molecular Biology, pp. 28-36,
 AAAI Press, Menlo Park, California, 1994.
 
+
 3. Version of my tools
 python2: /home/yzj//software/anaconda2/bin/python
 perl5: /usr/local/bin/perl
+
 
 4. Format of input and output file
 4.1 input: FASTA格式的序列文件,如果是chipseq call出来的peak的bed文件，可以用bedtools getfasta得到FASTA序列
