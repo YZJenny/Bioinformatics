@@ -1,3 +1,11 @@
+The MEME Suite
+问题：
+Q1. 我这次做的CHIP实验蛋白结合位点是怎样的？ 
+Q2. 结合事件是否单单只是一个简单事件又或者是包括复合体在内的事件？
+Q3. 结合是否包括cofactor在内？ 
+Q4. 这里是否存在已知TFs的结合位点？ 
+Q5. 发现的一些motif是否与已知motif相类似？ 
+
 1.Motif Discovery
 1.1 MEME: discovers novel, ungapped motifs in your sequences. 
 
@@ -16,7 +24,9 @@ MoMo uses one of three algorithms to discover motifs representing amino acid pre
 2. Motif Enrichment
 2.1 CentriMo
 
-2.2 AME
+2.2 AME: identifies known user-provided motifs that are either relatively enriched in your sequences compared with control sequences, 
+that are enriched in the first sequences in your input file, or that are enriched in sequences with small values of scores 
+that you can specify with your input sequences (sample output from sequences, control sequences and motifs). 
 
 2.3 SpaMo
 
@@ -26,7 +36,9 @@ MoMo uses one of three algorithms to discover motifs representing amino acid pre
 3. Motif Scanning
 3.1 FIMO
 
-3.2 MAST
+3.2 MAST: searches sequences for matches to a set of motifs, and sorts the sequences by the best combined match to all motifs 
+(sample output for motifs and sequences).
+#对于输入序列寻找到的motif的一个可视化，MAST利用一种合适的match方法给用户展示了在什么地方发现的motif
 
 3.3 MCAST
 
@@ -34,4 +46,18 @@ MoMo uses one of three algorithms to discover motifs representing amino acid pre
 
 
 4. Motif comparision
-4.1 Tomtom
+4.1 Tomtom：compares one or more motifs against a database of known motifs (e.g., JASPAR). 
+Tomtom will rank the motifs in the database and produce an alignment for each significant match (sample output for motif and JASPAR CORE 2014 database).
+# 同已知motif进行比对，TOMTOM可以将用户数据里面发现的motif同数据库里面的已知的motif进行比对
+
+MEME suits 可以回答你以下问题：
+Q1. 我这次做的CHIP实验蛋白结合位点是怎样的？  
+A1. MEME和DREME可以帮助你回答这个问题
+Q2. 结合事件是否单单只是一个简单事件又或者是包括复合体在内的事件？
+A2. MEME将会发现长motif
+Q3. 结合是否包括cofactor在内？
+A3. DREME将会发现不止一个motif( low-p-value)
+Q4. 这里是否存在已知TFs的结合位点？
+A4. AME可以在你的序列里发现富集的已知的motif
+Q5. 发现的一些motif是否与已知motif相类似？
+A5. TOMTOM将会回答这一问题
