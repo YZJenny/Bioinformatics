@@ -20,6 +20,12 @@ export PATH=$HOME/meme/bin:$PATH
 # 2. get fasta
 bedtools getfasta -fi /home/genomewide/refgenome/hg19/hg19.fa -bed pipeline/MEME/data/H3K27me3_peaks.broadPeak -fo pipeline/MEME/data/H3K27me3_peaks.fa &
 
-# 3. run meme
-meme pipeline/MEME/data/H3K27me3_peaks.fa -o pipeline/MEME/output -dna &
+# 3. run MEME
+# 3.1 meme
+meme pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output_meme -dna &
+
+# 3.2 dreme
+dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output_dreme -dna &
+
+# 3.3 meme-chip
 
