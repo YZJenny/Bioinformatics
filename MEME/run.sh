@@ -32,4 +32,6 @@ meme pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/meme -dna &
 dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output/dreme -dna &
 
 # 4.3 meme-chip
+dreme -p pipeline/MEME/input/H3K27me3_peaks.fa -o pipeline/MEME/output_dreme -dna -db meme/db/motif_databases/JASPAR/JASPAR_CORE_2016_vertebrates.meme &
+
 
