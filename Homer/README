@@ -1,4 +1,4 @@
-HOMER软件是Linux command line based，常用来查找DNA motif ，偶尔以及一些ChIP-seq的分析（如，peak calling）。
+HOMER软件常用来查找DNA motif ，偶尔以及一些ChIP-seq的分析（如，peak calling）。
 
 其他的DNA motif 查找软件如非常有名的在线tool: MEME。
 其他的peak calling tool：Macs2 （更常用）
