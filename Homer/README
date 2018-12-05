@@ -3,7 +3,7 @@ HOMER (Hypergeometric Optimization of Motif EnRichment) is a suite of tools for 
 HOMER was primarily written as a de novo motif discovery algorithm and is well suited for finding 8-20 bp motifs in large scale genomics data.  
 HOMER contains many useful tools for analyzing ChIP-Seq, GRO-Seq, RNA-Seq, DNase-Seq, Hi-C and numerous other types of functional genomics sequencing data sets.
 
-1.source
+1.Source
 Website:http://homer.ucsd.edu/homer/
 Download the software from http://homer.salk.edu/homer/configureHomer.pl
 
@@ -13,3 +13,18 @@ Heinz S, Benner C, Spann N, Bertolino E et al. Simple Combinations of Lineage-De
 3.Version of my tools
 python2: /home/yzj/software/anaconda2/bin/python
 perl5: /usr/local/bin/perl
+
+4. Format of Input and Output
+4.1 Input: fasta,gene list,bed file
+4.2 Output:
+*.motif
+
+homerresults.html
+homerresults/*.html
+homerresults/*.motif
+homerresults/*.logo.svg
+
+knownResults.html
+knownResults/*.html
+knownResults/*.motif
+knownResults/*.motif
