@@ -32,3 +32,7 @@ Usage:
 Example:
       awk '{print $4"\t"$1"\t"$2"\t"$3"\t+"}' input/H3K27me3_peaks.broadPeak > input/H3K27me3_peaks_homer.bed
       findMotifsGenome.pl pipeline/Homer/input/H3K27me3_peaks_homer.bed hg19 pipeline/Homer/output/findMotGen -len 8,10,12
+
+# 4. Another analysis
+# 4.1 GO enrichment
+findGO.pl pipeline/Homer/input/genelist.txt human pipeline/Homer/output/GO_output/
