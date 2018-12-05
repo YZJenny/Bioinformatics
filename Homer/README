@@ -1,7 +1,20 @@
-HOMER软件常用来查找DNA motif ，偶尔以及一些ChIP-seq的分析（如，peak calling）。
 
-其他的DNA motif 查找软件如非常有名的在线tool: MEME。
-其他的peak calling tool：Macs2 （更常用）
+HOMER (Hypergeometric Optimization of Motif EnRichment) is a suite of tools for Motif Discovery and next-gen sequencing analysis.
+HOMER was primarily written as a de novo motif discovery algorithm and is well suited for finding 8-20 bp motifs in large scale genomics data.  
+HOMER contains many useful tools for analyzing ChIP-Seq, GRO-Seq, RNA-Seq, DNase-Seq, Hi-C and numerous other types of functional genomics sequencing data sets.
+
+1.source
+Website:http://homer.ucsd.edu/homer/
+Download the software from http://homer.salk.edu/homer/configureHomer.pl
+
+2.Citation
+Heinz S, Benner C, Spann N, Bertolino E et al. Simple Combinations of Lineage-Determining Transcription Factors Prime cis-Regulatory Elements Required for Macrophage and B Cell Identities. Mol Cell 2010 May 28;38(4):576-589. PMID: 20513432
+
+3.Version of my tools
+python2: /home/yzj/software/anaconda2/bin/python
+perl5: /usr/local/bin/perl
+
+
 
 1.安装
 mkdir homer && cd homer
