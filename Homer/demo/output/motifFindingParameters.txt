@@ -1,0 +1,1 @@
+cmd = H3K27me3_peaks.fa fasta fa_output/
