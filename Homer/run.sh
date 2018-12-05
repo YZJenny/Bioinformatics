@@ -4,35 +4,28 @@ wget http://homer.salk.edu/homer/configureHomer.pl
 perl configureHomer.pl -install
 
 # 2. Download related data
-perl configureHomer.pl -install hg19
-perl configureHomer.pl -install hg38
-perl configureHomer.pl -install human-p   #promoter set(-2000,2000)bp
-perl configureHomer.pl -install human-o
+perl configureHomer.pl -install hg19      #GENOMES: human genome and annotation for UCSC hg19
+perl configureHomer.pl -install hg38      #GENOMES: human genome and annotation for UCSC hg38
+perl configureHomer.pl -install human-p   #PROMOTERS: promoter set(-2000,2000)bp
+perl configureHomer.pl -install human-o   #ORGANISMS: Homo sapiens (human) accession and ontology information, NCBI Gene
 
 # 3. finding motif
 # 3.1 FASTA file Motif Discovery
-(1) findMotifs.pl - performs motif analysis with lists of Gene Identifiers or FASTA files (See FASTA file analysis)
+findMotifs.pl - performs motif analysis with lists of Gene Identifiers or FASTA files (See FASTA file analysis)
 Usage:  
       findMotifs.pl targets.fa fasta output/ -fasta background.fa
 Example:
       findMotifs.pl pipeline/Homer/input/H3K27me3_peaks.fa fasta pipeline/Homer/output/fa_output/ -len 8,10,12
 
 # 3.1 Gene/Promoter-based Analysis
-(1) findMotifs.pl - performs motif and gene ontology analysis with lists of Gene Identifiers, both promoter and mRNA motifs (See Gene ID Analysis Tutorial)
+findMotifs.pl - performs motif and gene ontology analysis with lists of Gene Identifiers, both promoter and mRNA motifs (See Gene ID Analysis Tutorial)
 Usage:
       findMotifs.pl <input list> <promoter set> <output directory> [additoinal options]
 Example:
       findMotifs.pl pipeline/Homer/input/genelist.txt human pipeline/Homer/output/genelst_output/ -len 8,10,12
 
-
-(2) findGO.pl - performs only gene ontology analysis with lists of Gene Identifiers
-Usage:
-      findGO.pl <target ids file> <organism> <output directory> [options]
-Example:
-
-
 #3.3 Next-Gen Sequencing/Genomic Position Analysis
-(1) findMotifsGenome.pl: Program will find de novo and known motifs in regions in the genome
+findMotifsGenome.pl: Program will find de novo and known motifs in regions in the genome
 Usage: 
       findMotifsGenome.pl <pos file> <genome> <output directory> [additional options]
 
