@@ -1,14 +1,10 @@
 DiffBind: Differential binding analysis of ChIPSeq peak data
+
 1. Introduction
 DiffBind provides functions for processing ChIP-Seq data enriched for genomic loci where specific protein/DNA binding occurs, including 
-peak sets identified by ChIP-Seq peak callers and aligned sequence read datasets. It is designed to work with multiple peak sets simultaneously, 
-representing different ChIP experiments (antibodies, transcription factor and/or histone marks, experimental conditions, replicates) as 
-well as managing the results of multiple peak callers.
-The primary emphasis of the package is on identifying sites that are differentially bound between two sample groups. It includes functions 
-to support the processing of peak sets, including overlapping and merging peak sets, counting sequencing reads overlapping intervals in 
-peak sets, and identifying statistically significantly differentially bound sites based on evidence of binding affinity (measured by differences in read densities). 
+peak sets identified by ChIP-Seq peak callers and aligned sequence read datasets.
+The primary emphasis of the package is on identifying sites that are differentially bound between two sample groups. 
 To this end it uses statistical routines developed in an RNA-Seq context (primarily the Bioconductor packages edgeR and DESeq2 ). 
-Additionally, the package builds on Rgraphics routines to provide a set of standardized plots to aid in binding analysis.
 
 2. Source
 http://www.bioconductor.org/packages/release/bioc/html/DiffBind.html
