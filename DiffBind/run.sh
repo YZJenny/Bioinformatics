@@ -8,10 +8,11 @@ BiocManager::install("DiffBind", version = "3.8")
 # 2.1 Reading in the peaksets: 
 # The first step is to read in a set of peaksets and associated metadata.
 library(DiffBind)
-tamoxifen <- dba(sampleSheet="tamoxifen.csv",dir=system.file("extra", package="DiffBind"))
+samples <- read.csv('meta/samplesheet.csv')
+tamoxifen <- dba(sampleSheet=samples)
 
 # 2.2 Counting reads: 
-# The next step is to calculate a binding matrix with scores based on read counts for every sample (affinity scores), rather than confidence scores for only those peaks called in a specific sample (occupancy scores). 
+# The next step is to take the alignment files and compute count information for each of the peaks/regions. The next step is to calculate a binding matrix with scores based on read counts for every sample (affinity scores), rather than confidence scores for only those peaks called in a specific sample (occupancy scores). 
 tamoxifen <- dba.count(tamoxifen,summits=250)
 
 # 2.3 Establishing a contrast: 
@@ -20,10 +21,10 @@ tamoxifen <- dba.contrast(tamoxifen, categories=DBA_CONDITION)
 
 # 2.4 Performing the differential analysis
 # The main differential analysis function is invoked as follows:
-tamoxifen <- dba.analyze(tamoxifen)
+tamoxifen <- dba.analyze(tamoxifen,method=DBA_ALL_METHODS)
 
 # 2.5 Retrieving the differentially bound sites
 # The final step is to retrieve the differentially bound sites as follows:
-tamoxifen.DB <- dba.report(tamoxifen)
-
-
+tamoxifen.DB <- dba.report(tamoxifen,method=DBA_DESEQ2)
+out <- as.data.frame(tamoxifen.DB)
+write.table(out, file="output/diff_peak.txt", sep="\t", quote=F, col.names = NA)
