@@ -26,5 +26,12 @@ SampleID,Tissue,Factor,Condition,Replicate,bamReads,bamControl,Peaks,PeakCaller
 
 The first four columns are attributes for your samples that will be used to create a design matrix while the last four columns are for specifying file locations and type. The read files can be gzipped bed files or bam files.
 
-
 4.2 Output: 
+Significant differential peaks:
+
+seqnames  ranges  strand  Conc Conc_Resistant Conc_Responsive      Fold   p-value       FDR
+
+Conc: mean read concentration over all the samples (the default calculation uses log2 normalized ChIP read counts with control read counts subtracted)
+Conc_Resistant: mean concentration over the first (Resistant) group
+Conc_Responsive: mean concentration over the second (Responsive) group
+Fold: shows the difference in mean concentrations between the two groups, with a positive value indicating increased binding affinity in the Resistant group and a negative value indicating increased binding affinity in the Responsive group.
