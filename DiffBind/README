@@ -20,4 +20,11 @@ R 3.5.0
 
 5. Format of Input and Output
 4.1 Input: .csv
+This program requires csv file (sample sheet) that specifies your samples and their locations. The following columns are required:
+
+SampleID,Tissue,Factor,Condition,Replicate,bamReads,bamControl,Peaks,PeakCaller
+
+The first four columns are attributes for your samples that will be used to create a design matrix while the last four columns are for specifying file locations and type. The read files can be gzipped bed files or bam files.
+
+
 4.2 Output: 
