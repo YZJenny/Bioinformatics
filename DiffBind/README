@@ -1,9 +1,12 @@
 DiffBind: Differential binding analysis of ChIPSeq peak data
 
 1. Introduction
-DiffBind works primarily with peaksets, which are sets of genomic intervals representing candidate protein binding sites. 
-Each interval consists of a chromosome, a start and end position, and usually a score of some type indicating confidence in, or strength of,
-the peak. Associated with each peakset are metadata relating to the experiment from which the peakset was derived.
+DiffBind is an R package that is used for identifying sites that are differentially bound between two sample groups. 
+It works primarily with sets of peak calls (‘peaksets’), which are sets of genomic intervals representing candidate protein binding sites for each sample. 
+It includes functions that support the processing of peaksets, including overlapping and merging peak sets across an entire dataset, 
+counting sequencing reads in overlapping intervals in peak sets, and identifying statistically significantly differentially bound sites 
+based on evidence of binding affinity (measured by differences in read densities).
+
 2. Source
 http://www.bioconductor.org/packages/release/bioc/html/DiffBind.html
 http://www.bioconductor.org/packages/release/bioc/vignettes/DiffBind/inst/doc/DiffBind.pdf
