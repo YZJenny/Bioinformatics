@@ -21,10 +21,10 @@ tamoxifen <- dba.contrast(tamoxifen, categories=DBA_CONDITION)
 
 # 2.4 Performing the differential analysis
 # The main differential analysis function is invoked as follows:
-tamoxifen <- dba.analyze(tamoxifen,method=DBA_ALL_METHODS)
+tamoxifen <- dba.analyze(tamoxifen)
 
 # 2.5 Retrieving the differentially bound sites
 # The final step is to retrieve the differentially bound sites as follows:
-tamoxifen.DB <- dba.report(tamoxifen,method=DBA_DESEQ2)
+tamoxifen.DB <- dba.report(tamoxifen)
 out <- as.data.frame(tamoxifen.DB)
 write.table(out, file="output/diff_peak.txt", sep="\t", quote=F, col.names = NA)
