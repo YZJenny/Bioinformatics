@@ -1,10 +1,38 @@
-### ComBat消除batch
+### ComBat消除batch,Combat的输入是标准化后的数据, 不能存在全0的行，以及Inf的出现
 library(mgcv)
 library(nlme)
 library(genefilter)
 library(BiocParallel)
 library(sva)
 library(dplyr)
+library(edgeR)
+
+zero.rows.del <- function(data,batch){
+  data <- as.matrix(data)
+  batch <- as.factor(batch)
+  zero.rows.lst <- lapply(levels(batch), function(batch_level) {
+    if (sum(batch == batch_level) > 1) {
+      return(which(apply(data[, batch == batch_level], 1,
+                         function(x) {
+                           var(x) == 0
+                         })))
+    }else {
+      
+      return(which(rep(1, 3) == 2))
+      
+    }       
+  })
+  zero.rows <- Reduce(union, zero.rows.lst)
+  keep.rows <- setdiff(1:nrow(data), zero.rows)
+  if (length(zero.rows) > 0) {
+    cat(sprintf("Found %d genes with uniform expression within a single batch (all zeros); these will not be adjusted for batch.\n",
+                length(zero.rows)))
+    data.orig <- data
+    data <- data[keep.rows, ]
+  }
+  return(data)
+}
+
   
 counts1 <- read.table('/local/yanzijun/SY/data/GSE141140_all.counts.exp.txt',header = TRUE)
 counts2 <- read.csv('/local/yanzijun/SY/data/AllSamples.GeneExpression.Count.csv',header = TRUE)[,c(1:55)]
