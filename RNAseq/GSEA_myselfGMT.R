@@ -1,5 +1,6 @@
 rm(list = ls())
 library(GSEABase) 
+library(clusterProfiler)
 setwd('/mdshare/node9/yanzijun/Extra/230305_gsea/')
 
 gene_FC <- read.csv('gsea_input.csv')
