@@ -4,6 +4,20 @@ library(biomaRt)
 library(GO.db)
 
 ############
+## 方法1
+############
+FG <- readRDS('/mdshare/node9/yanzijun/public/FerrDB/FC_dr_mk_sup.RDS')
+gset <- c("ferroptosis_geneset","NA",FG)
+gset <- gset%>% 
+  as.data.frame() %>% 
+  t()
+write.table(gset,file = "ferroptosis_geneset.gmt",sep = "\t",row.names = F,col.names = F,quote = F)
+
+
+############
+## 方法2
+############
+############
 ## 1. 提取KEGG
 ############
 hsa_term <- clusterProfiler::download_KEGG("hsa")
