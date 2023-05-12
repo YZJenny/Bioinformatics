@@ -19,8 +19,10 @@ symbol <- data.frame(ENTREZID=names(id2symbol),gene=id2symbol)
 print(all(PATH_ID_NAME$ENTREZID==symbol$ENTREZID))
 term2symbol <- cbind(PATH_ID_NAME,symbol)[,c(3,5)]
 
-### 写出gmt
+### 制作成一个list，存储各个term
 term2symbol_list <- tapply(term2symbol[,2],as.factor(term2symbol[,1]),function(x) x)
+
+### 写出gmt
 write.gmt <- function(geneSet,gmt_file){
   sink( gmt_file )
   for (i in 1:length(geneSet)){
