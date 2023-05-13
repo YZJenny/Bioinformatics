@@ -2,6 +2,7 @@ rm(list=ls())
 library(limma)
 library(ggplot2)
 library(dplyr)
+library(edgeR)
 setwd('/mdshare/node9/yanzijun/Extra/230503_GSE136825/')
 
 ### step1. gtf文件提取gene_id和gene_name的对应关系
