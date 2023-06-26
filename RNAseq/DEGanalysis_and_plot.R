@@ -1,3 +1,4 @@
+### count数据的差异表达分析
 rm(list=ls())
 library(limma)
 library(ggplot2)
