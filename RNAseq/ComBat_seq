@@ -1,0 +1,64 @@
+### 最新四个批次的数据(不包括CR那篇数据)
+rm(list=ls())
+library(sva)
+setwd('/mdshare/node9/yanzijun/SY/data/221025/')
+data <- read.csv('data/Merge_First53s_Second25s_Third26s_Fourth15s_Batch_before_gene_COUNT.csv',
+                 row.names = 1) #处理前的count数据
+dim(data)
+
+## 1.批次
+batch1 <- grep('1SE',colnames(data))
+batch2 <- grep('2PE',colnames(data))
+batch3 <- grep('3PE',colnames(data))
+batch4 <- grep('4PE',colnames(data))
+
+batch=rep(NA,ncol(data))
+batch[batch1]="batch1";batch[batch2]="batch2";batch[batch3]="batch3";batch[batch4]="batch4"
+
+## 2.组织来源
+HSC=grep('^HSC',colnames(data))
+TALL=grep('^L',colnames(data))
+Thy=grep('^Thy',colnames(data))
+AML=grep('^M',colnames(data))
+
+tissue=rep(NA,ncol(data))
+tissue[HSC]='HSC';tissue[TALL]='TALL';tissue[Thy]='Thy';tissue[AML]='AML'
+
+## 3.细胞模型
+PDX <- grep('P[1-9]',colnames(data))
+model=rep('Primary',ncol(data))
+model[PDX]='PDX'
+
+group <- data.frame(sampleID=colnames(data),batch=batch,tissue=tissue,model=model)
+adjusted_data <- sva::ComBat_seq(as.matrix(data), batch=batch, group=tissue)
+
+## 保存结果
+write.csv(group,'res/Merge_First53s_Second25s_Third26s_Fourth15s_sampleInfo.csv',row.names = FALSE)
+write.csv(adjusted_data,'res/Merge_First53s_Second25s_Third26s_Fourth15s_Batch_after_gene_COUNT.csv',
+          row.names =TRUE)
+
+## 检验效果
+library("FactoMineR")
+library("ggplot2")
+library("factoextra")
+pca.plot = function(dat,col){
+  df.pca <- PCA(t(dat), graph = FALSE)
+  fviz_pca_ind(df.pca,
+               geom.ind = "point",
+               col.ind = col ,
+               addEllipses = FALSE,
+               legend.title = "Groups"
+  )
+}
+
+p1 <- pca.plot(data,factor(batch))  ## 处理前
+p2 <- pca.plot(adjusted_data,factor(batch))  ## 处理后
+p3 <- pca.plot(data,factor(tissue))
+p4 <- pca.plot(adjusted_data,factor(tissue))
+pdf('fig/Combat_seq_COUNT_4batch.pdf',width = 5,height = 4)
+print(p1)
+print(p2)
+print(p3)
+print(p4)
+dev.off()
+
