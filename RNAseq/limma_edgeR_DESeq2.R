@@ -134,7 +134,7 @@ edgR_vsThy <- get_edgeR(case.exp=TALL,ctrl.exp=Thy,case.tag='TALL',ctrl.tag='Thy
 ## DESeq2
 DESeq2_vsThy <- get_DESeq2(case.exp=TALL,ctrl.exp=Thy,case.tag='TALL',ctrl.tag='Thy',FC=1)
 
-### 3种差异分析结果比较
+### 4种差异分析结果比较
 allg <- intersect(rownames(limma_COUNT_vsThy),rownames(edgR_vsThy))#取交集
 allg <- intersect(allg,rownames(DESeq2_vsThy))
 allg <- intersect(allg,rownames(limma_TPM_vsThy))
