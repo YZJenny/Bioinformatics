@@ -1,3 +1,4 @@
+### bulk RNAseq数据的差异表达分析，输入数据类型包括COUNT/logTPM
 rm(list=ls())
 library(limma)
 library(dplyr)
