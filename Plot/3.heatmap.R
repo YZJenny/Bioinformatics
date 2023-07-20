@@ -35,7 +35,7 @@ p.TARGET <- pheatmap::pheatmap(plot.exp,scale = 'row',cluster_cols = F,cluster_r
                                annotation_col = group_df,show_colnames = F,
                                treeheight_row=0,treeheight_col=0,
                                annotation_colors = ann_colors,border_color = "white",
-                               colorRampPalette(c("navy", "white", "firebrick3"))(length(seq(-4,4,by = 0.1))),
+                               color =colorRampPalette(c("navy", "white", "firebrick3"))(length(seq(-4,4,by = 0.1))),
                                gaps_col = cumsum(
                                  c(length(TAL1),length(TAL2),length(HOXA),
                                    length(LMO1_2),length(LMO2_LYL1),length(NKX2_1),length(TLX1),length(TLX3),length(Unknown))
