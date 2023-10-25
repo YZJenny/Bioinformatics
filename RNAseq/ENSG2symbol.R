@@ -24,23 +24,3 @@ countf3 <- aggregate(x = countf3[,3:ncol(countf3)],   #此时exprSet的第三列
                      FUN = mean) %>%   #原文中是计算最大值（max），也可以计算平均值（mean）或者中位数（median）
   column_to_rownames(var = 'symbol')
 write.table(countf3,'/remote-home/yanzijun/CRU/TALL/data/GSE227832/GSE227832_RNAseq_read_counts_symbol.txt',quote=F,row.names = F,col.names = TRUE)
-
-
-
-
-
-data1 <- read.csv('/remote-home/yanzijun/CRU/TALL/data/GSE227832/GSE227832-GPL11154_series_matrix.txt',skip = 33,sep='\t')
-data1$X.Sample_title <- NULL
-data1 <- data1[,grep('diagnosis',colnames(data1))]
-colnames(data1)
-
-
-data2 <- read.csv('/remote-home/yanzijun/CRU/TALL/data/GSE227832/GSE227832-GPL16791_series_matrix.txt',skip = 33,sep='\t')
-data2$X.Sample_title <- NULL
-data1 <- data1[,grep('diagnosis',colnames(data1))]
-colnames(data2)
-
-data3 <- read.csv('/remote-home/yanzijun/CRU/TALL/data/GSE227832/GSE227832-GPL24676_series_matrix.txt',skip = 33,sep='\t')
-data3$X.Sample_title <- NULL
-data3 <- data3[,grep('diagnosis',colnames(data1))]
-colnames(data2)
